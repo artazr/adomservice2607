@@ -192,20 +192,20 @@ jQuery(function($) {'use strict';
 		});
 	});
 
-	// Contact form
-	var form = $('#main-contact-form');
-	form.submit(function(event){
-		event.preventDefault();
-		var form_status = $('<div class="form_status"></div>');
-		$.ajax({
-			url: $(this).attr('action'),
-			beforeSend: function(){
-				form.prepend( form_status.html('<p><i class="fa fa-spinner fa-spin"></i> Email en cours d\'envoi ...</p>').fadeIn() );
-			}
-		}).done(function(data){
-			form_status.html('<p class="text-success">Merci de nous avoir contacté. Nous vous recontacterons dès que possible.</p>').delay(5000).fadeOut();
-		});
-	});
+	// // Contact form
+	// var form = $('#main-contact-form');
+	// form.submit(function(event){
+	// 	event.preventDefault();
+	// 	var form_status = $('<div class="form_status"></div>');
+	// 	$.ajax({
+	// 		url: $(this).attr('action'),
+	// 		beforeSend: function(){
+	// 			form.prepend( form_status.html('<p><i class="fa fa-spinner fa-spin"></i> Email en cours d\'envoi ...</p>').fadeIn() );
+	// 		}
+	// 	}).done(function(data){
+	// 		form_status.html('<p class="text-success">Merci de nous avoir contacté. Nous vous recontacterons dès que possible.</p>').delay(5000).fadeOut();
+	// 	});
+	// });
 
 	//Pretty Photo
 	$("a[rel^='prettyPhoto']").prettyPhoto({

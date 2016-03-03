@@ -1,18 +1,25 @@
 <?php
-$name       = @trim(stripslashes($_POST['name'])); 
-$from       = @trim(stripslashes($_POST['email'])); 
-$subject    = @trim(stripslashes($_POST['subject'])); 
-$message    = @trim(stripslashes($_POST['message'])); 
-$to   		= 'alexmorand26@gmail.com';//replace with your email
+ 
+// Get values from the form
+$name=@htmlspecialchars($_POST['name']);
+$email=@htmlspecialchars($_POST['email']);
+$objet=@htmlspecialchars($_POST['subject']);
+$monmessage=@htmlspecialchars($_POST['message']);
+ 
+$to = "alexmorand26@gmail.com";
+$subject = "Devis en ligne";
+$message = " Name: " . $name . "\r\n objet: " . $objet . "\r\n Email: " . $email . "\r\n Monmessage: " . $monmessage;
+ 
+ 
+$from = "adomservice2607";
+$headers = "From:" . $from . "\r\n";
+$headers .= "Content-type: text/plain; charset=UTF-8" . "\r\n"; 
+ 
+if(@mail($to,$subject,$message,$headers))
+{
+  print "<script>document.location.href='http://adomservice2607.com';</script>";
+}else{
+  echo "Erreur! Veuillez Remplir les Champs Requis.";
+}
 
-$headers   = array();
-$headers[] = "MIME-Version: 1.0";
-$headers[] = "Content-type: text/plain; charset=iso-8859-1";
-$headers[] = "From: {$name} <{$from}>";
-$headers[] = "Reply-To: <{$from}>";
-$headers[] = "Subject: {$subject}";
-$headers[] = "X-Mailer: PHP/".phpversion();
-
-mail($to, $subject, $message, $headers);
-
-die;
+?>

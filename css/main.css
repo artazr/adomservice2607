@@ -160,7 +160,7 @@ ul.nostyle i {
   margin-bottom: 0;
 }
 .navbar.navbar-default .navbar-toggle {
-  margin-top: 32px;
+  margin-top: 0px;
 }
 .navbar.navbar-default .navbar-brand {
   height: auto;
@@ -299,6 +299,7 @@ ul.nostyle i {
 #cta {
   padding: 50px 0;
   background-color: #eeeeee;
+  margin-top: 50px;
 }
 #cta h2 {
   margin-top: 0;
